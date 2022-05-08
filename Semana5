@@ -1,245 +1,264 @@
-// Clase empleado
+/ Clase empleado
 //________________
+// Marcelo Munizaga R.
+// Version 1.0 08 mayo 2022
 
 public abstract class empleado {
 
-  private String apellido;
-  private String direccion;
+    // Atributos
   private String nombre;
-  private String telefono;
+  private String apellido;
   private String dni;
+  private String direccion;
+  private String salario;
   private int años;
+  double telefono;
 
-  double salario;
-
+  // constructor con atributos
   public empleado(
-      String apellido,
-      String direccion,
       String nombre,
-      String telefono,
+      String apellido,
       String dni,
+      String direccion,
+      String telefono,
       int años,
       double salario) {
-    this.apellido = apellido;
-    this.direccion = direccion;
     this.nombre = nombre;
-    this.telefono = telefono;
+    this.apellido  = apellido;
     this.dni = dni;
+    this.telefono = direccion;
+    this.salario = telefono;
     this.años = años;
     this.salario = salario;
   }
 
-  public String getApellido() {
-    return apellido;
-  }
-
-  public String getDireccion() {
-    return direccion;
-  }
+  // getters y setters
 
   public String getNombre() {
     return nombre;
   }
 
-  public String getTelefono() {
-    return telefono;
+  public void setNombre (String nobre){
+        this.nombre = nombre;
+  }
+        
+  public String getApellido() {
+    return apellido;
   }
 
+  public void setApellido (String nobre){
+        this.nombre = apellido;
+  }
+  
   public String getDni() {
     return dni;
   }
 
-  public int getAños() {
-    return años;
+  public void setDni (String dni){
+        this.nombre = dni;
+  }
+  
+  public String getDireccion() {
+    return direccion;
   }
 
-  public double getSalario() {
+  public void setDireccion (String direccion){
+        this.nombre = direccion;
+  }
+  
+    public String geTelefono() {
+    return telefono;
+  }
+
+  public void setTelefono (String telefono){
+        this.nombre = telefono;
+  }
+  
+    public double getSalario() {
     return salario;
   }
 
-  public void setSalario(double salario) {
+  public void setSalario (double salario) {
     this.salario = salario;
   }
-
-  public void imprimir() {
-    System.out.println(
-        nombre +
-            " || " +
-            apellido +
-            " ||  " +
-            direccion +
-            " || " +
-            telefono +
-            " || " +
-            dni +
-            " || " +
-            años +
-            " ||" +
-            salario);
+  
+  public String devuelvenombre(Empleado empleado){
+      String nombre = empleado.getNombre()+"\n";
+      String apellido = empleado.getApellido()+"\n";
+      String dni = empleado.getDni()+"\n";
+      String direccion = empleado.getDireccion()+"\n";
+      String telefono = empleado.getTelefono()+"\n";
+      String nombreCompleto="Nombre del Empleado:" + nombre + 
+      "Apellido del Empleado:" + apellido + "Rut:" + dni + "Direccion:"
+      + direccion + "Telefono:" +"\n";
+      return nombreCompleto;
   }
-}
-
+  
+  //metodo sueldosecretario 5%
+  public double devuelveSueldo(Empleado empleado){
+   return empleado.getSalario() + (empleado.getSalario() *0.05);   
+  }
+  
+  //metodo sueldo vendedor 10%
+  public double devuelveSueldoVendedor (Empleado empleado){
+      return empleado.getSalario() + (empleado.getSalario() *0.10);
+  }
+  
+  //metodo sueldo vendero 20%
+  public double devuelveSueldoJefe(Empleado empleado){
+      returnempleado.getSalario() + (empleado.getSalario() *0.20);
+  }
+  
+  //metodo cambiar supervisor
+  public String cambio_supevisor(Empleado empleado){
+      String = empleado.getNombre() + "\n";
+      String apellido = empleado.getApellido();
+      String nombre_supervisor="Nombre del nuevo supervisor:" + nombre + 
+      "Apellido del empleado:" + apellido;
+      return nombre_supervisor;
+  }
+  
+  //metodo cambiar coche
+  public static String cambioCoche(Automovil automovil){
+      return automovil.getMarca() + " " + automovil.getModelo() + " " 
+      + automovil.getMatricula();
+  }
+  
+  // metodo cambiar secretario
+  public String cambio_secretario(Empleado emleado){
+      String nombre = empleado.getNombre() + "\n";
+      String apellido = empleado.getApellido();
+      String nombre_secretario = "Nombre del nuevo secretario:" +
+      "Apellido del empleado:" + apellido;
+      return nombre_secretario;
+  }
+  
 // Clase del secretario
 // ________________
 
-public class SecreDeLaZona extends empleado {/* hereda clase empleado */
+public class Secretario extends empleado {/* hereda clase empleado */
 
-  public SecreDeLaZona(
-      String secreTarioAcargo,
-      String listaVende,
-      String apellido,
-      String despacho,
-      String nombre,
-      String fax,
-      String dni,
-      int años,
-      double salario) {
-    super(apellido, despacho, nombre, fax, dni, años, salario);
-    this.secretarioAcargo = secreTarioAcargo;
-    this.listaVende = listaVende;
+  private String despacho;
+  private String numerfax;
+  private String cargo;
+  
+  public Secretario
+  (String nombre, 
+  String apellido,
+  String dni,
+  String direccion,
+  String telefono,
+  double salario){
+      super(nombre,
+      apellido,
+      dni,
+      direccion,
+      telefono,
+      salario);
+      this.cago="Secretario";
+      this.despacho="a domicilio";
+      this.numerofax="65879456";
   }
-
-  private String secretarioAcargo, listaVende;
-
-  public void imprimir() {
-    super.imprimir();
-    System.out.println(secretarioAcargo + " " + listaVende);
-  }
-
-  public double incrementoSalario() {
-    return salario * 0.05 + salario;
-  }
-
-  public String getSecretarioAcargo() {
-    return secretarioAcargo;
-  }
-
-  public double getSalario() {
-    return salario;
-  }
-
-  void salario(double d) {
-    throw new UnsupportedOperationException("Not supported yet.");
+  public void datos_secre(){
+      Systema.out.println("Su cargo es:"+ cargo);
   }
 }
 
 // Clase del vendedor
 // ________________
+public class Vendedor extends empleado
+{
+    private String cargo;
+    //private String matricula;
+    //private String marca;
+    //private String modelo;
+    
+    private String celular;
+    private String area_venta;
+    private String lista_cliente;
+    private int porce_venta;
+    
+    public Vendedor(String nombre,
+    String apellido,
+    String dni,
+    String direccion,
+    String telefono,
+    double salario){
+        super(nombre,
+        apellido,
+        dni,
+        direccion,
+        telefono,
+        salario);
+        this.cargo="Vendedor";
+}
 
-public class VendedorDeLaZona extends empleado {/* hereda clase empleado */
-
-  public VendedorDeLaZona(
-      String secreTarioAcargo,
-      String listaVende,
-      String apellido,
-      String direccion,
-      String nombre,
-      String telefono,
-      String dni,
-      int años,
-      double salario) {
-    super(apellido, direccion, nombre, telefono, dni, años, salario);
-    this.secretarioAcargo = secreTarioAcargo;
-    this.listaVende = listaVende;
-  }
-
-  private String secretarioAcargo, listaVende;
-
-  public void imprimir() {
-    super.imprimir();
-    System.out.println(secretarioAcargo + " " + listaVende);
-  }
-
-  public void cambiarSecretario() {
-  }
-
-  public void cambiarCarro() {
-  }
-
-  public void darAlta() {
-  }
-
-  public void darBaja() {
-  }
-
-  public double incrementoSalario() {
-    return salario * 0.1 + salario;
-  }
-
-  public String getSecretarioAcargo() {
-    return secretarioAcargo;
-  }
-
-  public String getListaVende() {
-    return listaVende;
-  }
-
-  public double getSalario() {
-    return salario;
-  }
-
-  void salario(double d) {
-    throw new UnsupportedOperationException("Not supported yet.");
-  }
+public void datos_vende(){
+    Systema.out.pringln("Su cargo es:" + cargo);
+}
 }
 
 // Clase Jefe
 // ________________
 
-public class JefeDeLaZona extends Empleado {/* hereda clase empleado */
+public class JefeZona extends empleado 
+{/* hereda clase empleado */
 
-  public JefeDeLaZona(
-      String secreTarioAcargo,
-      String listaVende,
-      String apellido,
-      String direccion,
-      String nombre,
-      String telefono,
-      String dni,
-      int años,
-      double salario) {
-    super(apellido, direccion, nombre, telefono, dni, años, salario);
-    this.secretarioAcargo = secreTarioAcargo;
-    this.listaVende = listaVende;
-  }
+  private String cargo;
+    public JefeZona(String nombre, String apellido, String dni, String telefono,
+    double salario){
+        super(nombre, apellido, dni, direccion, telefono, salario);
+        this.cargo = "Jefe de Zona";
+    }
+    
+    public ovid datos_jefe (){
+        System.out.println("Su cargo es:");
+    }
+    }
+    
+/**
+ * @author Marcelo Munizaga R. 
+ * @version 1.0
+ */
+public class Automovil
+{
+// Atributos
+    private String marca;
+    private String modelo;
+    private String matricula;
 
-  private String secretarioAcargo, listaVende;
 
-  public void imprimir() {
-    super.imprimir();
-    System.out.println(secretarioAcargo + " " + listaVende);
-  }
+// Constructores
+public Automovil(){}
+public Automovil (String marca, String modelo, String matricula){
+    this.matricula = matricula;
+    this.marca = marca;
+    this.modelo = modelo;
+}
 
-  public void cambiarSecretario() {
-  }
+static void imprimeAuto(Automovil imprimir){
+    System.out.println ("Auto: " + imprimir.marca + "\n");
+}
 
-  public void cambiarCarro() {
-  }
+public static void main(String[] args)throws Exception;{
+Automovil unoDesconocido=new Automovil();
+unoDesconocido.marca="Mahindra";
+unoDesconocido.modelo="Xuv500";
+unoDesconocido.matricula="UHZX-35";
+imprimeAuto (unoDesconocido);}
 
-  public void darAlta() {
-  }
+//auto vendedor
+Automovil miAuto = new Automovil("Mahindra", "Xuv500","UHZX-35");
+System.out.println ("Marca:" + miAuto.getMarca());
+System.out.println ("Modelo:" + miAuto.getModelo());
+System.out.println ("Matricula:" + miAuto.getMatricula());
 
-  public void darBaja() {
-  }
+// llamado a devuelveSueldovendedor
+System.out.println ("Su sueldo es:" + datos3.getSalario());
+System.out.println ("Su sueldo como vendedor con un incremento de 10% es de:" + " "+"$"
+datos3.decuelveSueldoVendedor(datos3));
 
-  public double incrementoSalario() {
-    return salario * 0.2 + salario;
-  }
-
-  public String getSecretarioAcargo() {
-    return secretarioAcargo;
-  }
-
-  public String getListaVende() {
-    return listaVende;
-  }
-
-  public double getSalario() {
-    return salario;
-  }
-
-  void salario(double d) {
-    throw new UnsupportedOperationException("Not supported yet.");
-  }
+//Nuevo objeto clase JefeZona de los atributos de clase principal Emleado
+JefeZona datos4 = new JefeZona ("Marcelo","Munizaga","12.806.702-7","Carlos Brito 3015","978457458", 60000);
 
 }
