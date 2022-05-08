@@ -1,0 +1,245 @@
+// Clase empleado
+//________________
+
+public abstract class empleado {
+
+  private String apellido;
+  private String direccion;
+  private String nombre;
+  private String telefono;
+  private String dni;
+  private int años;
+
+  double salario;
+
+  public empleado(
+      String apellido,
+      String direccion,
+      String nombre,
+      String telefono,
+      String dni,
+      int años,
+      double salario) {
+    this.apellido = apellido;
+    this.direccion = direccion;
+    this.nombre = nombre;
+    this.telefono = telefono;
+    this.dni = dni;
+    this.años = años;
+    this.salario = salario;
+  }
+
+  public String getApellido() {
+    return apellido;
+  }
+
+  public String getDireccion() {
+    return direccion;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public String getTelefono() {
+    return telefono;
+  }
+
+  public String getDni() {
+    return dni;
+  }
+
+  public int getAños() {
+    return años;
+  }
+
+  public double getSalario() {
+    return salario;
+  }
+
+  public void setSalario(double salario) {
+    this.salario = salario;
+  }
+
+  public void imprimir() {
+    System.out.println(
+        nombre +
+            " || " +
+            apellido +
+            " ||  " +
+            direccion +
+            " || " +
+            telefono +
+            " || " +
+            dni +
+            " || " +
+            años +
+            " ||" +
+            salario);
+  }
+}
+
+// Clase del secretario
+// ________________
+
+public class SecreDeLaZona extends empleado {/* hereda clase empleado */
+
+  public SecreDeLaZona(
+      String secreTarioAcargo,
+      String listaVende,
+      String apellido,
+      String despacho,
+      String nombre,
+      String fax,
+      String dni,
+      int años,
+      double salario) {
+    super(apellido, despacho, nombre, fax, dni, años, salario);
+    this.secretarioAcargo = secreTarioAcargo;
+    this.listaVende = listaVende;
+  }
+
+  private String secretarioAcargo, listaVende;
+
+  public void imprimir() {
+    super.imprimir();
+    System.out.println(secretarioAcargo + " " + listaVende);
+  }
+
+  public double incrementoSalario() {
+    return salario * 0.05 + salario;
+  }
+
+  public String getSecretarioAcargo() {
+    return secretarioAcargo;
+  }
+
+  public double getSalario() {
+    return salario;
+  }
+
+  void salario(double d) {
+    throw new UnsupportedOperationException("Not supported yet.");
+  }
+}
+
+// Clase del vendedor
+// ________________
+
+public class VendedorDeLaZona extends empleado {/* hereda clase empleado */
+
+  public VendedorDeLaZona(
+      String secreTarioAcargo,
+      String listaVende,
+      String apellido,
+      String direccion,
+      String nombre,
+      String telefono,
+      String dni,
+      int años,
+      double salario) {
+    super(apellido, direccion, nombre, telefono, dni, años, salario);
+    this.secretarioAcargo = secreTarioAcargo;
+    this.listaVende = listaVende;
+  }
+
+  private String secretarioAcargo, listaVende;
+
+  public void imprimir() {
+    super.imprimir();
+    System.out.println(secretarioAcargo + " " + listaVende);
+  }
+
+  public void cambiarSecretario() {
+  }
+
+  public void cambiarCarro() {
+  }
+
+  public void darAlta() {
+  }
+
+  public void darBaja() {
+  }
+
+  public double incrementoSalario() {
+    return salario * 0.1 + salario;
+  }
+
+  public String getSecretarioAcargo() {
+    return secretarioAcargo;
+  }
+
+  public String getListaVende() {
+    return listaVende;
+  }
+
+  public double getSalario() {
+    return salario;
+  }
+
+  void salario(double d) {
+    throw new UnsupportedOperationException("Not supported yet.");
+  }
+}
+
+// Clase Jefe
+// ________________
+
+public class JefeDeLaZona extends Empleado {/* hereda clase empleado */
+
+  public JefeDeLaZona(
+      String secreTarioAcargo,
+      String listaVende,
+      String apellido,
+      String direccion,
+      String nombre,
+      String telefono,
+      String dni,
+      int años,
+      double salario) {
+    super(apellido, direccion, nombre, telefono, dni, años, salario);
+    this.secretarioAcargo = secreTarioAcargo;
+    this.listaVende = listaVende;
+  }
+
+  private String secretarioAcargo, listaVende;
+
+  public void imprimir() {
+    super.imprimir();
+    System.out.println(secretarioAcargo + " " + listaVende);
+  }
+
+  public void cambiarSecretario() {
+  }
+
+  public void cambiarCarro() {
+  }
+
+  public void darAlta() {
+  }
+
+  public void darBaja() {
+  }
+
+  public double incrementoSalario() {
+    return salario * 0.2 + salario;
+  }
+
+  public String getSecretarioAcargo() {
+    return secretarioAcargo;
+  }
+
+  public String getListaVende() {
+    return listaVende;
+  }
+
+  public double getSalario() {
+    return salario;
+  }
+
+  void salario(double d) {
+    throw new UnsupportedOperationException("Not supported yet.");
+  }
+
+}
